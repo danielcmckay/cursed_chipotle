@@ -1,5 +1,6 @@
-import 'package:cursed_chipotle/pages/Map_Screen.dart';
+import 'package:cursed_chipotle/pages/Splash_Screen.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '!sChipotle Finder',
+      title: '!Chipotle Finder',
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
+  Position currentPosition;
   final String title;
 
   @override
@@ -39,12 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: MapScreen(),
+      body: SplashScreen(),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
